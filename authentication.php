@@ -25,7 +25,7 @@ else { ?>
         <?php require_once 'inc/sign-up.php'; ?>
     </div>
 <?php } ?>
-<script src="vendor/jquery/js/jquery.min.js"></script>
+<script src="vendor/jquery/jquery.min.js"></script>
 <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
 <script src="js/authentication.js"></script>
 </body>
