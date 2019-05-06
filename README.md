@@ -1,4 +1,4 @@
-# DAWebProyect
+# DAWebProject
 
 <h2> Proyecto Web Crowdlending</h2>
 <h6> Inspirado en https://www.grow.ly/
