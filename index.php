@@ -12,7 +12,6 @@
 
   <!-- Bootstrap core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/header/header.css" rel="stylesheet">
 
 </head>
 
