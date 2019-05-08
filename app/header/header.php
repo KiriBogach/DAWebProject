@@ -20,7 +20,7 @@
                 </a>
                 <p class="navbar-login-text">hola,
                     <br>
-                    <a class="navbar-login-text" href="authentication.php">regístrate</a>
+                    <a class="navbar-login-text" href="authentication-sign-up.php">regístrate</a>
                     <br> o <a class="navbar-login-text" href="authentication.php">inicia sesíon </a>
                 </p>
             </li>
