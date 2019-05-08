@@ -5,16 +5,26 @@
         <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarResponsive">
-        <ul class="navbar-nav ml-auto">
+        <ul class="navbar-nav justify-content-center">
             <li class="nav-item">
                 <a class="nav-link" href="#">Servicios</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="#">Contact</a>
             </li>
+        </ul>
+        <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-                <a class="nav-link" href="authentication.php"><img src="css/avatar.png" width="39px" height="32px"></a>
+                <a class="nav-link navbar-login" href="authentication.php">
+                    <img src="css/header/avatar.png" class="navbar-login-image">
+                </a>
+                <p class="navbar-login-text">hola,
+                    <br>
+                    <a class="navbar-login-text" href="authentication.php">regístrate</a>
+                    <br> o <a class="navbar-login-text" href="authentication.php">inicia sesíon </a>
+                </p>
             </li>
+
         </ul>
     </div>
 </nav>

@@ -10,6 +10,15 @@
 .navbar-gray .navbar-brand:hover, .navbar-gray .navbar-brand:focus {
     color: #fff;
 }
+.navbar-gray .navbar-login, .navbar-login-text {
+    -ms-flex-direction: column;
+    font-size: 0.8rem;
+}
+.navbar-gray .navbar-login .navbar-login-image {
+    image-resolution: snap;
+    width: 37px;
+    height: 33px;
+}
 
 .navbar-gray .navbar-nav .nav-link {
     color: rgba(0, 0, 0, 1);
