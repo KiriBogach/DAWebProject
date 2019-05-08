@@ -7,7 +7,8 @@ define("APP_NAME", "AJAX Login");
 require_once 'db.php';
 
 /*
- * Function which creates random string. Used for token creation
+ * Función que crea una cadena aleatoria. Usado para la creación de tokens.
+ * Referencia: https://stackoverflow.com/questions/4356289/php-random-string-generator
  */
 function random_str($length, $keyspace = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ")
 {
@@ -20,7 +21,8 @@ function random_str($length, $keyspace = "0123456789abcdefghijklmnopqrstuvwxyzAB
 }
 
 /*
- * Authenticate the user on every page request. Good to prevent tampering with session/cookie values
+ * Autenticamos al usuario en cada solicitud de página.
+ * Útil para evitar la manipulación de valores de sesión/cookie
  */
 function auth_user() {
     global $db;
