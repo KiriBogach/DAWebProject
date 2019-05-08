@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-light static-top" style="background-color: #D3D3D3">
         <a class="navbar-brand" href="#">
-            <img src="css/header/canvas.png" width="165" height="100" alt="">
+            <img src="resources/img/canvas.png" width="165" height="100" alt="">
         </a>
        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
             aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
