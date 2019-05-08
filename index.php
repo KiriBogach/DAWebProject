@@ -21,19 +21,21 @@
   <?php require_once __DIR__ . '/app/header/header.php'?>
 
   <!-- Page Content -->
+
   <div class="container">
     <div class="row">
       <div class="col-lg-12 text-center">
-        <h1 class="mt-5">A Bootstrap 4 Starter Template</h1>
+          <img src="resources/img/como-funciona.svg" class="img-fluid mt-5" style="background-color: rgba(216,216,216,0.65)" alt="Responsive image">
+          <h1 class="mt-5">A Bootstrap 4 Starter Template</h1>
         <p class="lead">Complete with pre-defined file paths and responsive navigation!</p>
         <ul class="list-unstyled">
           <li>Bootstrap 4.2.1</li>
           <li>jQuery 3.3.1</li>
         </ul>
       </div>
+
     </div>
 
-      <img src="resources/img/crown.png" class="img-fluid" alt="Responsive image">
       <div class="card w-75">
           <div class="card-body">
               <h5 class="card-title">Card title</h5>
