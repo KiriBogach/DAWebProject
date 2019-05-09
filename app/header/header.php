@@ -8,19 +8,19 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav justify-content-center">
-            <li class="nav-item">
+            <li class="nav-item btn-outline-secondary">
                 <a class="nav-link" href="#">Proyectos</a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item btn-outline-secondary">
                 <a class="nav-link" href="#">Inversores</a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item btn-outline-secondary">
                 <a class="nav-link" href="#">Empresas</a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item btn-outline-secondary">
                 <a class="nav-link" href="#">Servicios</a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item btn-outline-secondary">
                 <a class="nav-link" href="#">Contacto</a>
             </li>
         </ul>
