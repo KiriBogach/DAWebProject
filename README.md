@@ -15,7 +15,7 @@
 <ul>
     <li>ajax
         <ul>
-            <li>Con código PHP que ejectúa lógica de negocio para obtener datos en formato JSON</li>
+            <li>Con código PHP que ejecuta lógica de negocio para obtener datos en formato JSON</li>
         </ul>
     </li>
     <li>app
@@ -43,7 +43,7 @@
             <li>Con código JavaScript y jQuery que se ejecuta en cada página</li>
         </ul>
     </li>
-    <li>resoruces
+    <li>resources
         <ul>
             <li>Contenido cargado como imágenes</li>
         </ul>
