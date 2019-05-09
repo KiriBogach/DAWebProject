@@ -34,7 +34,7 @@
                             <img src="resources/img/business-image.jpg" class="blur img-fluid" alt="Image more info">
                         </div>
                         <div class="container text-white">
-                            <p class="lead">Invierte ahora en un negocio para ganar ayudando.</p>
+                            <p class="lead">Invierte ahora en tecnología para ganar ayudando.</p>
                             <a class="btn btn-primary btn-lg" href="#" role="button">Quiero saber más</a>
                         </div>
                     </div>
