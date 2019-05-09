@@ -1,5 +1,9 @@
+<?php
+require_once __DIR__ . '/app/Projects/ProjectManager.php';
+?>
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
 
@@ -8,7 +12,8 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Bare - Start Bootstrap Template</title>
+    <title>TicLending</title>
+    <link rel="shortcut icon" type="image/png" href="resources/ico/favicon.png"/>
 
     <!-- Bootstrap core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -60,7 +65,8 @@
         </div>
     </div>
 </div>
-    <?php require_once __DIR__ . '/app/footer.php' ?>
+
+<?php require_once __DIR__ . '/app/footer.php' ?>
 
     <!--    <div class="card w-75">
             <div class="card-body">
@@ -70,6 +76,64 @@
             </div>
         </div>
 
+    <?php
+    $projectManager = new ProjectManager();
+    $projects = $projectManager->getRandomProjects();
+
+    foreach ($projects as $project) {
+        var_dump($project);
+        ?>
+        <div class="card text-center" style="padding: 0.5rem;">
+            <div class="card-header">
+                <ul class="nav nav-pills card-header-pills">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">Activa</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Fuera de Plazo</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="card-body">
+                <h5 class="card-title"><?=$project['nombre']?></h5>
+                <p class="card-text">Tiempo restante: 2 días</p> -->
+                <img src="resources/img/empresa-aviones.jpg" class="img-responsive img-rounded" style="max-height: 15rem; max-width: 15rem;">
+                <div class="row">
+                    <div class="col card-text">Tiempo restante</div>
+                    <div class="col card-text">Rating</div>
+                    <div class="col card-text">Interés Medio</div>
+                    <div class="col card-text">Plazo</div>
+                    <div class="col card-text">Fondos Necesarios</div>
+                    <div class="col card-text">Fondos Alcanzados</div>
+                </div>
+                <div class="row">
+                    <div class="col card-text">13</div>
+                    <div class="col card-text"><?=$project['rating']?></div>
+                    <div class="col card-text"><?=$project['interes']?>%</div>
+                    <div class="col card-text">a</div>
+                    <div class="col card-text"><?=$project['fondos_necesarios']?></div>
+                    <div class="col card-text"><?=$project['fondos_alcanzados']?></div>
+                </div>
+            </div>
+        </div>
+
+        <br/>
+    <?php
+    }
+    ?>
+
+
+
+
+    <!--    <div class="card w-75">
+            <div class="card-body">
+                <h5 class="card-title">Card title</h5>
+                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                <a href="#" class="btn btn-primary">Button</a>
+            </div>
+        </div>
+
+>>>>>>> 3db77f5b4d03ebacfa6ec2762ab8e55be74cc262
         <div class="card w-50">
             <div class="card-body">
                 <h5 class="card-title">Card title</h5>

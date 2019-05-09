@@ -37,6 +37,18 @@ class ProjectManager {
     }
 
     /**
+     * @param int $maxResults
+     * @return mixed
+     */
+    public function getRandomProjects($maxResults = 3) {
+        $selectProject = $this->db->prepare('SELECT * FROM projects LIMIT :maxResults');
+        $selectProject->bindParam(':maxResults', $maxResults, PDO::PARAM_INT);
+        $selectProject->execute();
+
+        return $selectProject->fetchAll();
+    }
+
+    /**
      * @param $nombre
      * @param $fechaInicio
      * @param $fechaFin
@@ -102,6 +114,11 @@ WHERE id = :id
         }
     }
 
+    /**
+     * @param $id
+     * @return mixed
+     * @throws Exception
+     */
     public function deleteProject($id) {
         if (empty($id)) {
             throw new Exception('Se debe indicar un identificador válido');
