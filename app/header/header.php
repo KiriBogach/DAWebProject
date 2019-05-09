@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-light static-top" style="background-color: #D3D3D3">
+<nav class="navbar navbar-expand-lg navbar-light static-top" style="background-color: rgba(165,165,165,0.5)">
         <a class="navbar-brand" href="#">
             <img src="resources/img/canvas.png" width="165" height="100" alt="">
         </a>
@@ -8,6 +8,15 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav justify-content-center">
+            <li class="nav-item">
+                <a class="nav-link" href="#">Proyectos</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Inversores</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Empresas</a>
+            </li>
             <li class="nav-item">
                 <a class="nav-link" href="#">Servicios</a>
             </li>
