@@ -48,7 +48,8 @@ if(!empty($_SERVER["HTTP_X_REQUESTED_WITH"]) && strtolower($_SERVER["HTTP_X_REQU
                     "name" => $user["name"],
                     "email" => $user["email"],
                     "username" => $user["username"],
-                    "password" => $user["password"]
+                    "password" => $user["password"],
+                    "inversor" => $user["inversor"]
                 );
                 if(isset($formData["remember_me"]))
                 {

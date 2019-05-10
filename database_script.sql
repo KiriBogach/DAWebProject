@@ -4,6 +4,7 @@ CREATE TABLE `users` (
 	`email` VARCHAR(255) NOT NULL,
 	`username` VARCHAR(60) NOT NULL,
 	`password` VARCHAR(255) NOT NULL,
+	`inversor` VARCHAR(30) NOT NULL,
 	`created_at` DATETIME NOT NULL,
 	PRIMARY KEY (`id`)
 )

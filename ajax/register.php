@@ -38,6 +38,9 @@ if(!empty($_SERVER["HTTP_X_REQUESTED_WITH"]) && strtolower($_SERVER["HTTP_X_REQU
         {
             $errors[] = "Password field can't be blank.";
         }
+        if(trim($formData["inversor"]) == "") {
+            $errors[] = "Must select between inversor and empresario";
+        }
 
         require_once '../app/db.php';
 
@@ -60,12 +63,13 @@ if(!empty($_SERVER["HTTP_X_REQUESTED_WITH"]) && strtolower($_SERVER["HTTP_X_REQU
         if(empty($errors))
         {
             $hashed_password = password_hash($formData["password"], PASSWORD_DEFAULT);
-            $create_user = $db->prepare("INSERT INTO users(name, email, username, password, created_at) VALUES(:name, :email, :username, :password, NOW())");
+            $create_user = $db->prepare("INSERT INTO users(name, email, username, password, inversor, created_at) VALUES(:name, :email, :username, :password, :inversor, NOW())");
             $create_user->execute(array(
                 ":name" => $formData["name"],
                 ":email" => $formData["email"],
                 ":username" => $formData["username"],
-                ":password" => $hashed_password
+                ":password" => $hashed_password,
+                ":inversor" => $formData["inversor"]
             ));
             $user_id = $db->lastInsertId();
             $_SESSION["user"] = array(
@@ -73,7 +77,8 @@ if(!empty($_SERVER["HTTP_X_REQUESTED_WITH"]) && strtolower($_SERVER["HTTP_X_REQU
               "name" => $formData["name"],
               "email" => $formData["email"],
               "username" => $formData["username"],
-              "password" => $hashed_password
+              "password" => $hashed_password,
+                "inversor" => $formData["inversor"]
             );
             $success = true;
         }
