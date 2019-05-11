@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__ . '/app/Projects/ProjectManager.php';
+require_once __DIR__ . '/app/includes.php';
 ?>
 
 <!DOCTYPE html>
@@ -15,7 +15,7 @@ require_once __DIR__ . '/app/Projects/ProjectManager.php';
     <title>TicLending</title>
     <link rel="shortcut icon" type="image/png" href="resources/ico/favicon.png"/>
 
-    <!-- Bootstrap core CSS -->
+    <!-- Cargamos Bootstrap -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="css/blur-img-txt.css" rel="stylesheet">
 
@@ -23,10 +23,10 @@ require_once __DIR__ . '/app/Projects/ProjectManager.php';
 
 <body>
 
-<!-- Navigation -->
-<?php require_once __DIR__ . '/app/header/header.php' ?>
+<!-- Cabecera -->
+<?php require_once __DIR__ . '/inc/components/header.php' ?>
 
-<!-- Page Content -->
+<!-- Contenido de la página -->
 
 <div class="container mt-5">
     <div class="row">
@@ -53,8 +53,10 @@ require_once __DIR__ . '/app/Projects/ProjectManager.php';
                         las empresas cuyo sector es el de las tecnologías de la información y las comunicaciones.
                         Aquí podrás invertir en proyectos desde automatización de sistemas de regadío hasta incluso
                         proyectos de videojuegos. Todo esto, ayudando a las empresas, ayudando a la innovación, a la
-                        renovación de tu propio entorno y al desarrollo, recibiendo intereses a cambio. Por eso en TICLending
-                        pensamos que este es el crowdlending inteligente, este es el crowdlending que revoluciona tu entorno.
+                        renovación de tu propio entorno y al desarrollo, recibiendo intereses a cambio. Por eso en
+                        TICLending
+                        pensamos que este es el crowdlending inteligente, este es el crowdlending que revoluciona tu
+                        entorno.
                     </p>
                 </li>
                 <li>
@@ -66,133 +68,14 @@ require_once __DIR__ . '/app/Projects/ProjectManager.php';
     </div>
 </div>
 
-<?php require_once __DIR__ . '/app/footer.php' ?>
 
-    <!--    <div class="card w-75">
-            <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                <a href="#" class="btn btn-primary">Button</a>
-            </div>
-        </div>
+<!-- Mostramos ciertos proyectos aleatorios como muestra de nuestros productos -->
+<?php require_once __DIR__ . '/inc/components/randomProjects.php' ?>
 
-    <?php
-    $projectManager = new ProjectManager();
-    $projects = $projectManager->getRandomProjects();
-
-    foreach ($projects as $project) {
-        var_dump($project);
-        ?>
-        <div class="card text-center" style="padding: 0.5rem;">
-            <div class="card-header">
-                <ul class="nav nav-pills card-header-pills">
-                    <li class="nav-item">
-                        <a class="nav-link active" href="#">Activa</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Fuera de Plazo</a>
-                    </li>
-                </ul>
-            </div>
-            <div class="card-body">
-                <h5 class="card-title"><?=$project['nombre']?></h5>
-                <p class="card-text">Tiempo restante: 2 días</p> -->
-                <img src="resources/img/empresa-aviones.jpg" class="img-responsive img-rounded" style="max-height: 15rem; max-width: 15rem;">
-                <div class="row">
-                    <div class="col card-text">Tiempo restante</div>
-                    <div class="col card-text">Rating</div>
-                    <div class="col card-text">Interés Medio</div>
-                    <div class="col card-text">Plazo</div>
-                    <div class="col card-text">Fondos Necesarios</div>
-                    <div class="col card-text">Fondos Alcanzados</div>
-                </div>
-                <div class="row">
-                    <div class="col card-text">13</div>
-                    <div class="col card-text"><?=$project['rating']?></div>
-                    <div class="col card-text"><?=$project['interes']?>%</div>
-                    <div class="col card-text">a</div>
-                    <div class="col card-text"><?=$project['fondos_necesarios']?></div>
-                    <div class="col card-text"><?=$project['fondos_alcanzados']?></div>
-                </div>
-            </div>
-        </div>
-
-        <br/>
-    <?php
-    }
-    ?>
+<!-- Pie de página -->
+<?php require_once __DIR__ . '/inc/components/footer.php' ?>
 
 
-
-
-    <!--    <div class="card w-75">
-            <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                <a href="#" class="btn btn-primary">Button</a>
-            </div>
-        </div>
-
->>>>>>> 3db77f5b4d03ebacfa6ec2762ab8e55be74cc262
-        <div class="card w-50">
-            <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                <a href="authentication.php" class="btn btn-primary">Button</a>
-            </div>
-        </div>
-    </div>
-
-    <div class="bd-example">
-        <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
-            <ol class="carousel-indicators">
-                <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
-                <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
-                <li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
-            </ol>
-            <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <img src="resources/img/idea.jpeg" class="d-block w-100" alt="...">
-                    <div class="carousel-caption d-none d-md-block">
-                        <h5>First slide label</h5>
-                        <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <img src="resources/img/idea.jpeg" class="d-block w-100" alt="...">
-                    <div class="carousel-caption d-none d-md-block">
-                        <h5>Second slide label</h5>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <img src="resources/img/idea.jpeg" class="d-block w-100" alt="...">
-                    <div class="carousel-caption d-none d-md-block">
-                        <h5>Third slide label</h5>
-                        <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
-                    </div>
-                </div>
-            </div>
-            <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="sr-only">Previous</span>
-            </a>
-            <a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="sr-only">Next</span>
-            </a>
-        </div>
-    </div>
-
-    <div class="jumbotron">
-        <h1 class="display-4">Hello, world!</h1>
-        <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to
-            featured content or information.</p>
-        <hr class="my-4">
-        <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
-        <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
-    </div>
-    -->
 <!-- Bootstrap core JavaScript -->
 <script src="vendor/jquery/jquery.min.js"></script>
 <script src="vendor/bootstrap/js/bootstrap.min.js"></script>

@@ -22,6 +22,7 @@ CREATE TABLE `projects` (
 	`interes` FLOAT NOT NULL,
 	`fondos_necesarios` FLOAT NOT NULL,
 	`fondos_alcanzados` FLOAT NOT NULL,
+	`foto` VARCHAR(128),
 	PRIMARY KEY (`id`)
 )
 COLLATE='latin1_swedish_ci'

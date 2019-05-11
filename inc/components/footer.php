@@ -1,11 +1,11 @@
-<footer class="mt-5 navbar-light" style="background-color: rgba(165,165,165,0.5); padding-block-start: 15px">
+<footer class="mt-5 navbar-light" style="background-color: rgba(165,165,165,0.5); padding-block-start: 15px;">
     <div class="container-fluid text-center text-md-left">
         <div class="row">
             <div class="col-md-6 mt-md-0 mt-3">
                 <h5>Administradores del sitio:</h5>
                 <ul class="list-unstyled">
                     <li>
-                        <a href="mailto:kiril.bogachy@um.es">Kiril Bogach</a>
+                        <a href="mailto:kyryl.bogachy@um.es">Kyryl Bogach</a>
                     </li>
                     <li>
                         <a href="mailto:victor.nicolasc@um.es">Víctor Nicolás Conesa</a>

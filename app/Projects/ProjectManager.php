@@ -26,8 +26,8 @@ class ProjectManager {
 
         $selectProject = $this->db->prepare('SELECT * FROM projects WHERE id = :id');
         $selectProject->execute(array(
-            ':id' => $id
-        ));
+                                    ':id' => $id
+                                ));
 
         if ($selectProject->rowCount() <= 0) {
             throw new Exception("No se ha encontrado el proyecto buscado con id: '$id'");
@@ -40,8 +40,8 @@ class ProjectManager {
      * @param int $maxResults
      * @return mixed
      */
-    public function getRandomProjects($maxResults = 3) {
-        $selectProject = $this->db->prepare('SELECT * FROM projects LIMIT :maxResults');
+    public function getRandomProjects($maxResults = 10) {
+        $selectProject = $this->db->prepare('SELECT *, DATEDIFF(fecha_fin, CURDATE()) AS tiempo_restante FROM projects LIMIT :maxResults');
         $selectProject->bindParam(':maxResults', $maxResults, PDO::PARAM_INT);
         $selectProject->execute();
 
@@ -57,22 +57,30 @@ class ProjectManager {
      * @param $fondosNecesarios
      * @throws Exception
      */
-    public function addProject($nombre, $fechaInicio, $fechaFin, $rating, $interes, $fondosNecesarios) {
+    public function addProject($nombre, $fechaInicio, $fechaFin, $rating, $interes, $fondosNecesarios, $fondosAlcanzados = 0, $foto = null) {
         $insert = $this->db->prepare('
 INSERT INTO projects 
-(nombre, fecha_inicio, fecha_fin, rating, interes, fondos_necesarios, fondos_alcanzados)
+(nombre, fecha_inicio, fecha_fin, rating, interes, fondos_necesarios, fondos_alcanzados, foto)
 VALUES
-(:nombre, :fecha_inicio, :fecha_fin, :rating, :interes, :fondos_necesarios, :fondos_alcanzados)
+(:nombre, :fecha_inicio, :fecha_fin, :rating, :interes, :fondos_necesarios, :fondos_alcanzados, :foto)
         ');
+
+        $uriFotoProyecto = null;
+        if (!is_null($foto)) {
+            $uriFotoProyecto =  DateUtils::getNowString() . '_' . $foto['name'];
+            move_uploaded_file($foto['tmp_name'], '../../resources/proyectos/' . $uriFotoProyecto);
+        }
+
         $insert->execute(array(
-            ':nombre'               => $nombre,
-            ':fecha_inicio'         => $fechaInicio,
-            ':fecha_fin'            => $fechaFin,
-            ':rating'               => $rating,
-            ':interes'              => $interes,
-            ':fondos_necesarios'    => $fondosNecesarios,
-            ':fondos_alcanzados'    => 0 // Los fondos alcanzados al comienzo son 0
-        ));
+                             ':nombre' => $nombre,
+                             ':fecha_inicio' => DateUtils::dateToMYSQL($fechaInicio),
+                             ':fecha_fin' => DateUtils::dateToMYSQL($fechaFin),
+                             ':rating' => $rating,
+                             ':interes' => $interes,
+                             ':fondos_necesarios' => $fondosNecesarios,
+                             ':fondos_alcanzados' => $fondosAlcanzados, // Los fondos alcanzados al comienzo pueden ser 0
+                             ':foto' => $uriFotoProyecto
+                         ));
 
         if ($insert->rowCount() <= 0) {
             throw new Exception('Error insertando el proyecto');
@@ -99,15 +107,15 @@ fondos_alcanzados = :fondos_alcanzados
 WHERE id = :id
         ');
         $insert->execute(array(
-            ':id'                   => $id,
-            ':nombre'               => $nombre,
-            ':fecha_inicio'         => $fechaInicio,
-            ':fecha_fin'            => $fechaFin,
-            ':rating'               => $rating,
-            ':interes'              => $interes,
-            ':fondos_necesarios'    => $fondosNecesarios,
-            ':fondos_alcanzados'    => $fondosAlcanzados
-        ));
+                             ':id' => $id,
+                             ':nombre' => $nombre,
+                             ':fecha_inicio' => DateUtils::dateToMYSQL($fechaInicio),
+                             ':fecha_fin' => DateUtils::dateToMYSQL($fechaFin),
+                             ':rating' => $rating,
+                             ':interes' => $interes,
+                             ':fondos_necesarios' => $fondosNecesarios,
+                             ':fondos_alcanzados' => $fondosAlcanzados
+                         ));
 
         if ($insert->rowCount() <= 0) {
             throw new Exception('Error actualiznado el proyecto');
@@ -126,8 +134,8 @@ WHERE id = :id
 
         $selectProject = $this->db->prepare('DELETE FROM projects WHERE id = :id');
         $selectProject->execute(array(
-            ':id' => $id
-        ));
+                                    ':id' => $id
+                                ));
 
         if ($selectProject->rowCount() <= 0) {
             throw new Exception("No se ha encontrado el proyecto buscado con id: '$id'");
