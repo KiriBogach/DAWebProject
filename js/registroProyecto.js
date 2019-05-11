@@ -58,7 +58,7 @@ $(function () {
 
         // Lanzamos la petición AJAX con la foto y los inputs
         $.ajax({
-            url: 'ajax/Projects/addProject',
+            url: 'ajax/Projects/addProject.php',
             type: 'post',
             dataType: 'json',  // esperamos una respuesta en JSON
             cache: false,
