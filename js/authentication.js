@@ -33,7 +33,7 @@ $(function () {
             console.log(data);
             if (data.success === true) {
                 $("#signUpForm .alert-errors").html("").hide();
-                $("#signUpForm .alert-success").html("Successful registration. Redirecting to dashboard in 3 seconds. Please wait...").fadeIn(1000);
+                $("#signUpForm .alert-success").html("Registro con éxito. Redirigiendo al login. Por favor, espera...").fadeIn(1000);
                 setTimeout(function () {
                     window.location.reload();
                 }, 3000);

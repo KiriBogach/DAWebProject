@@ -16,7 +16,7 @@
             <div class="col-md-3 mb-md-0 mb-3">
                 <ul class="list-unstyled navbar-nav">
                     <li>
-                        <a class="nav-link" href="#!">Home</a>
+                        <a class="nav-link" href="index.php">Home</a>
                     </li>
                     <li>
                         <a class="nav-link" href="#!">Proyectos</a>

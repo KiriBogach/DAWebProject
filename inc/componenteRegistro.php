@@ -1,11 +1,11 @@
 <?php if (!defined("APP_NAME")) exit(); ?>
 <div class="container">
     <div class="row">
-        <div class="col-md-6 col-md-offset-3 form-container" id="sign-up-form-container">
-            <h2 class="sign-in-heading text-center">Sign Up</h2>
+        <div class="col-md-8 offset-2 form-container" id="sign-up-form-container">
+            <h2 class="sign-in-heading text-center">Formulario de Registro</h2>
             <form method="post" id="signUpForm">
                 <div class="form-group">
-                    <label for="name">Name</label>
+                    <label for="name">Nombre</label>
                     <input type="text" name="name" id="name" class="form-control" placeholder="Name" required/>
                 </div>
 
@@ -16,18 +16,18 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="username">Username</label>
+                    <label for="username">Usuario</label>
                     <input type="text" name="username" id="username" class="form-control" placeholder="Username"
                            required/>
                 </div>
 
                 <div class="form-group">
-                    <label for="password">Password</label>
+                    <label for="password">Contraseña</label>
                     <input type="password" name="password" id="password" class="form-control" placeholder="Password"
                            required/>
                 </div>
 
-
+                <hr>
                 <div class="form-check">
                     <input class="form-check-input" type="radio" name="inversor" id="empresario"
                            value="empresario" required>
@@ -35,6 +35,7 @@
                         Empresario
                     </label>
                 </div>
+                <hr>
                 <div class="form-check">
                     <input class="form-check-input" type="radio" name="inversor" id="inversor"
                            value="inversor" required>
@@ -42,15 +43,15 @@
                         Inversor
                     </label>
                 </div>
-
+                <hr>
 
                 <div class="alert alert-success"></div>
                 <div class="alert alert-danger alert-errors"></div>
 
-                <button type="submit" class="btn btn-primary btn-lg btn-block">Sign Up</button>
+                <button type="submit" class="btn btn-primary btn-lg btn-block">Registrar</button>
                 <hr/>
-                <p>If you have an account you can sign in via the link below.</p>
-                <a href="#" id="sign-in-link">Sign In</a>
+                <p>Si tienes una cuenta, ingresa con el siguiente enlace.</p>
+                <a href="#" id="sign-in-link">Login</a>
                 <input type="hidden" name="_token" id="signup_token" class="token-field"
                        value="<?php echo isset($_SESSION["token"]) ? $_SESSION["token"] : ""; ?>"/>
             </form>

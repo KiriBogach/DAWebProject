@@ -8,9 +8,9 @@
     <title>AJAX Login</title>
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="vendor/bootstrap/css/bootstrap-theme.min.css" rel="stylesheet">
-    <link href="css/style.css" rel="stylesheet">
+    <link href="css/sign-upStyle.css" rel="stylesheet">
     <?php if(auth_user() !== null) { ?>
-    <link href="css/dashboard.css" rel="stylesheet">
+        <link href="css/dashboard.css" rel="stylesheet">
     <?php } ?>
 </head>
 <body>
@@ -21,8 +21,8 @@ if(auth_user() !== null)
 }
 else { ?>
     <div class="form-container-wrapper">
-        <?php require_once 'inc/sign-in.php'; ?>
-        <?php require_once 'inc/sign-up.php'; ?>
+        <?php require_once 'inc/componenteLogin.php'; ?>
+        <?php require_once 'inc/componenteRegistro.php'; ?>
     </div>
 <?php } ?>
 <script src="vendor/jquery/jquery.min.js"></script>

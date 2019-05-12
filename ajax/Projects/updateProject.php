@@ -17,17 +17,18 @@ try {
     $fondosNecesarios = isset($_REQUEST['fondosNecesarios']) ? null : $_REQUEST['fondosNecesarios'];
     $fondosAlcanzados = isset($_REQUEST['fondosAlcanzados']) ? null : $_REQUEST['fondosAlcanzados'];
 
-    // TODO: coger el formato de las fechas con el DateUtils.php
-    // TODO: Ojo con el empty que si digo que los fondosAlcanzados = 0, empty es true
-    //      en estos casos, mejor usar isset
-
-    if (is_null($id) || is_null($nombre) || is_null($fechaInicio) || is_null($fechaFin)
-        || is_null($rating) || is_null($interes) || is_null($fondosNecesarios) || is_null($fondosAlcanzados)) {
-        throw new Exception('Se deben indicar los parámetros correspondientes');
+    if (is_null($nombreProyecto) || is_null($fechaInicio)
+        || is_null($fechaFin) || is_null($rating)
+        || is_null($interes) || is_null($fondosNecesarios)
+        || is_null($fondosAlcanzados)) {
+        throw new Exception('Error en el parseo de parámetros');
     }
 
+    $dateFechaInicio = DateUtils::parseDateFromJavascript($fechaInicio);
+    $dateFechaFin = DateUtils::parseDateFromJavascript($fechaFin);
+
     $projectManager = new ProjectManager();
-    $projectManager->updateProject($id, $nombre, $fechaInicio, $fechaFin, $rating, $interes, $fondosNecesarios, $fondosAlcanzados);
+    $projectManager->updateProject($id, $nombre, $dateFechaInicio, $dateFechaFin, $rating, $interes, $fondosNecesarios, $fondosAlcanzados);
 } catch (Exception $ex) {
     $response['success'] = false;
     $response['error'] = $ex->getMessage();

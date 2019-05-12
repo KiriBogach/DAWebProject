@@ -36,4 +36,9 @@ class DateUtils {
     public static function getNowString() {
         return (new DateTime())->format(static::$DB_PHOTO_FORMAT);
     }
+
+    public static function convertToSpanish($dateString) {
+        $date = DateTime::createFromFormat(static::$JS_DATE_FORMAT, $dateString);
+        return self::dateToString($date);
+    }
 }

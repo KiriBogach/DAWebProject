@@ -28,13 +28,13 @@ function auth_user() {
     global $db;
 
     $user = null;
-    if(isset($_SESSION["user"]) || isset($_COOKIE["ajax_login_user"]))
+    if(isset($_SESSION["user"]) || isset($_COOKIE["cookie_usuario_logeado"]))
     {
-        $logged_in_user = isset($_SESSION["user"]) ? $_SESSION["user"] : json_decode($_COOKIE["ajax_login_user"], true);
+        $logged_in_user = isset($_SESSION["user"]) ? $_SESSION["user"] : json_decode($_COOKIE["cookie_usuario_logeado"], true);
         $check_user = $db->prepare("SELECT id FROM users WHERE email = :email AND username = :username AND password = :password");
         $check_user->execute(array(
             ":email" => $logged_in_user["email"],
-            ":username" => $logged_in_user["username"],
+            ":username" => $logged_in_user["usuario"],
             ":password" => $logged_in_user["password"]
         ));
         if($check_user->rowCount() > 0)

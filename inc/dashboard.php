@@ -22,7 +22,7 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-sm-3 col-md-2 sidebar">
-            <h3>Welcome, <?php echo $user["name"]; ?></h3>
+            <h3>Welcome, <?php echo $user["nombre"]; ?></h3>
             <br />
             <ul class="nav nav-sidebar">
                 <li class="active"><a href="#">Dashboard <span class="sr-only">(current)</span></a></li>

@@ -24,7 +24,7 @@ class ProjectManager {
             throw new Exception('Se debe indicar un identificador válido');
         }
 
-        $selectProject = $this->db->prepare('SELECT * FROM projects WHERE id = :id');
+        $selectProject = $this->db->prepare('SELECT *, DATEDIFF(fecha_fin, CURDATE()) AS tiempo_restante FROM projects WHERE id = :id');
         $selectProject->execute(array(
                                     ':id' => $id
                                 ));
@@ -60,17 +60,17 @@ class ProjectManager {
     public function addProject($nombre, $fechaInicio, $fechaFin, $rating, $interes, $fondosNecesarios, $fondosAlcanzados = 0, $foto = null) {
         $insert = $this->db->prepare('
 INSERT INTO projects 
-(nombre, fecha_inicio, fecha_fin, rating, interes, fondos_necesarios, fondos_alcanzados, foto)
+(nombre, fecha_inicio, fecha_fin, rating, interes, fondos_necesarios, fondos_alcanzados, formato_foto, usuario)
 VALUES
-(:nombre, :fecha_inicio, :fecha_fin, :rating, :interes, :fondos_necesarios, :fondos_alcanzados, :foto)
+(:nombre, :fecha_inicio, :fecha_fin, :rating, :interes, :fondos_necesarios, :fondos_alcanzados, :formato_foto, :usuario)
         ');
 
-        $uriFotoProyecto = null;
-        if (!is_null($foto)) {
-            $uriFotoProyecto =  DateUtils::getNowString() . '_' . $foto['name'];
-            move_uploaded_file($foto['tmp_name'], '../../resources/proyectos/' . $uriFotoProyecto);
+        $usuarioLogeado = auth_user();
+        if (empty($usuarioLogeado) || $usuarioLogeado['inversor'] !== 'empresario') {
+            throw new Exception('Solo puedes registrar un proyecto si estás logeado y eres empresario');
         }
 
+        $formatoFoto = explode('/', $foto['type'])[1];
         $insert->execute(array(
                              ':nombre' => $nombre,
                              ':fecha_inicio' => DateUtils::dateToMYSQL($fechaInicio),
@@ -79,8 +79,15 @@ VALUES
                              ':interes' => $interes,
                              ':fondos_necesarios' => $fondosNecesarios,
                              ':fondos_alcanzados' => $fondosAlcanzados, // Los fondos alcanzados al comienzo pueden ser 0
-                             ':foto' => $uriFotoProyecto
+                             ':formato_foto' => $formatoFoto,
+                             ':usuario' => $usuarioLogeado['id']
                          ));
+
+        if (!is_null($foto)) {
+            $idProyecto = $this->db->lastInsertId();
+            $uriFotoProyecto = $idProyecto . '.' . $formatoFoto;
+            move_uploaded_file($foto['tmp_name'], '../../resources/proyectos/' . $uriFotoProyecto);
+        }
 
         if ($insert->rowCount() <= 0) {
             throw new Exception('Error insertando el proyecto');
@@ -99,14 +106,14 @@ VALUES
      * @throws Exception
      */
     public function updateProject($id, $nombre, $fechaInicio, $fechaFin, $rating, $interes, $fondosNecesarios, $fondosAlcanzados) {
-        $insert = $this->db->prepare('
+        $update = $this->db->prepare('
 UPDATE projects SET
 nombre = :nombre, fecha_inicio = :fecha_inicio, fecha_fin = :fecha_fin,
 rating = :rating, interes = :interes, fondos_necesarios = :fondos_necesarios,
 fondos_alcanzados = :fondos_alcanzados
 WHERE id = :id
         ');
-        $insert->execute(array(
+        $update->execute(array(
                              ':id' => $id,
                              ':nombre' => $nombre,
                              ':fecha_inicio' => DateUtils::dateToMYSQL($fechaInicio),
@@ -117,7 +124,7 @@ WHERE id = :id
                              ':fondos_alcanzados' => $fondosAlcanzados
                          ));
 
-        if ($insert->rowCount() <= 0) {
+        if ($update->rowCount() <= 0) {
             throw new Exception('Error actualiznado el proyecto');
         }
     }
@@ -142,6 +149,24 @@ WHERE id = :id
         }
 
         return $selectProject->fetch();
+    }
+
+    public function invertir($id, $inversion) {
+        $fondosAlcanzadosActuales = self::getProject($id)['fondos_alcanzados'];
+
+        $update = $this->db->prepare('
+UPDATE projects SET
+fondos_alcanzados = :fondos_alcanzados
+WHERE id = :id
+        ');
+        $update->execute(array(
+                             ':id' => $id,
+                             ':fondos_alcanzados' => $fondosAlcanzadosActuales + $inversion
+                         ));
+
+        if ($update->rowCount() <= 0) {
+            throw new Exception('Error actualiznado el proyecto');
+        }
     }
 
 }
