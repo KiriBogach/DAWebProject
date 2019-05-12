@@ -9,7 +9,7 @@
     <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav justify-content-center">
             <li class="nav-item btn-outline-secondary">
-                <a class="nav-link" href="#">Proyectos</a>
+                <a class="nav-link" href="proyectos.php">Proyectos</a>
             </li>
             <li class="nav-item btn-outline-secondary">
                 <a class="nav-link" href="#">Inversores</a>

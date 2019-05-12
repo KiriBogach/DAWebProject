@@ -14,6 +14,13 @@ class ProjectManager {
         $this->db = $db;
     }
 
+    public function getAllProjects() {
+        $selectProject = $this->db->prepare('SELECT *, DATEDIFF(fecha_fin, CURDATE()) AS tiempo_restante FROM projects');
+        $selectProject->execute();
+
+        return $selectProject->fetchAll();
+    }
+
     /**
      * @param $id
      * @return array con los datos del proyecto
