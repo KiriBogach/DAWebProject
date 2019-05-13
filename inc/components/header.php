@@ -15,7 +15,7 @@
                 <a class="nav-link" href="inversores.php">Inversores</a>
             </li>
             <li class="nav-item btn-outline-secondary">
-                <a class="nav-link" href="#">Empresas</a>
+                <a class="nav-link" href="empresas.php">Empresarios</a>
             </li>
             <li class="nav-item btn-outline-secondary">
                 <a class="nav-link" href="#">Servicios</a>
@@ -24,12 +24,12 @@
                 <a class="nav-link" href="#">Contacto</a>
             </li>
         </ul>
-        <ul class="navbar-nav flex-column ml-auto" style="align-items: center;">
             <?php
                 $usuarioLogeado = auth_user();
                 // Si no estoy logeado, muestro los botones
                 if (is_null($usuarioLogeado)) {
             ?>
+        <ul class="navbar-nav flex-row ml-auto" style="align-items: center;">
             <li class="nav-item">
                 <button type="button" class="btn btn-outline-dark btn-sm mr-2" onclick="location.href='login.php'">Login</button>
             </li>
@@ -39,6 +39,7 @@
             <?php
                 } else {
             ?>
+        <ul class="navbar-nav flex-column ml-auto" style="align-items: center;">
             <li class="nav-item">
                 <h5>Bienvenido Sr/Sra '<?=$usuarioLogeado['nombre']?>'</h5>
             </li>

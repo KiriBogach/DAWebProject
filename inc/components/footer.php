@@ -19,7 +19,7 @@
                         <a class="nav-link" href="index.php">Home</a>
                     </li>
                     <li>
-                        <a class="nav-link" href="#!">Proyectos</a>
+                        <a class="nav-link" href="proyectos.php">Proyectos</a>
                     </li>
                     <li>
                         <a class="nav-link" href="#!">Servicios</a>
@@ -29,10 +29,10 @@
             <div class="col-md-3 mb-md-0 mb-3">
                 <ul class="list-unstyled navbar-nav">
                     <li>
-                        <a class="nav-link" href="#!">Inversores</a>
+                        <a class="nav-link" href="inversores.php">Inversores</a>
                     </li>
                     <li>
-                        <a class="nav-link" href="#!">Empresas</a>
+                        <a class="nav-link" href="empresas.php">Empresas</a>
                     </li>
                     <li>
                         <a class="nav-link" href="#!">Contacto</a>

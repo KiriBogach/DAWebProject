@@ -4,7 +4,7 @@ require_once __DIR__ . '/../../app/Inversores/UserManager.php';
 
 $userManager = new UserManager();
 
-$users = $userManager->getAllInversors();
+$users = $userManager->getAllEmpresarios();
 
 foreach ($users as $user) {
     ?>

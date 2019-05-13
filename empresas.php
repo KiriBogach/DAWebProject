@@ -31,30 +31,32 @@ require_once __DIR__ . '/app/includes.php';
         <div class="col-lg-12 text-center">
             <ul class="list-unstyled">
                 <li>
-                    <h1 class="mt-5">Inversores</h1>
+                    <h1 class="mt-5">Empresarios</h1>
                 </li>
                 <li>
                     <p class="text-body text-justify mt-5">
-                        Cada día más personas confían en nuestra visión del crowdlending inteligente, en la
-                        que invertir por el futuro y la innovación nunca fué tan fácil y beneficioso. Nuestros
-                        inversores apuestan cada día por la renovación tecnológica y por el sector de las TIC.
-                        Si eres una empresa dedicada a este sector, te damos razones para que confíes en nuestra
-                        plataforma y nuestro modo de ver las cosas, y es que, cada inversor es una razón para hacerlo.
-                        Así que regístrate ahora mismo como empresario y empieza a disfutar de las ventajas del crowdlending
-                        inteligente, desde el momento uno, tu proyecto será compartido con todos los inversores que estén
-                        registrados en nuestra página y podrán ayudarte con esos proyectos que necesitan un pequeño
-                        empujón financiero.
+                        Uniéndote a nuestra comunidad de inversores no tendrás problema alguno en encontrar una empresa
+                        que se adapte a tus necesidades y tus exigencias. Desde el primer momento podrás empezar a invertir
+                        en una solución TIC que te convenza o se ajuste a tu tipo de interés. Además contarás con una extensa
+                        lista de empresas y proyectos por los que podrás invertir, cuyo objetivo común seguro que también
+                        es el tuyo: la renovación tecnológica. Además, el proceso de inversión es realmente sencillo, solo
+                        tienes que buscar tu proyecto ideal <a href="proyectos.php" class="alert-link">aquí</a> e invertir
+                        la cantidad que estimes oportuna, en el momento en el que inviertas, verás cómo cada vez está el
+                        proyecto más cerca de cumplirse.
                     </p>
                 </li>
                 <li>
-                    <h4 class="mt-5">Ellos ya forjan un futuro mejor, ¿A qué esperas tú? <a href="registro.php" class="alert-link">únete</a>.</h4>
+                    <h4 class="mt-5">
+                        Todas estas empresas ya han empezado a confiar en nuestra idea. ¿a qué esperas?
+                        <a href="registro.php" class="alert-link">Únete.</a>
+                    </h4>
                 </li>
             </ul>
         </div>
     </div>
 </div>
 <div class="container mt-5">
-<?php require_once __DIR__ . '/inc/components/allInversors.php' ?>
+    <?php require_once __DIR__ . '/inc/components/allEmpresarios.php' ?>
 </div>
 <?php require_once __DIR__ . '/inc/components/footer.php' ?>
 

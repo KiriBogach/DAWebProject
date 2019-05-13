@@ -32,12 +32,15 @@ require_once __DIR__ . '/app/includes.php';
                     <h1 class="mt-5">Proyectos</h1>
                 </li>
                 <li>
-                    <p class="text-body mt-5">Invertir en una de las empresas que han confiado en nosotros es tan sencillo como
+                    <p class="text-body text-justify mt-5">
+                        Invertir en una de las empresas que han confiado en nosotros es tan sencillo como
                         rentable. Es tan fácil como explorar entre nuestros proyectos, el que más interesante estimes que es
                         y hacer click en el botón de invertir, esto te llevará a una página con más detalles del proyecto y un campo en el
                         que puedes indicar la cantidad de dinero a invertir y este irá directamente hacia el beneficiario.
-                        <br><strong>Nota:</strong> Sólo podrán invertir en los proyectos los usuarios
-                        registrados en la plataforma. Si no estás registrado, haz click <a href="registro.php" class="alert-link">aquí</a>
+                        <br>
+                        <strong>Nota:</strong> Sólo podrán invertir en los proyectos los usuarios
+                        registrados en la plataforma. Si no estás registrado, haz click
+                        <a href="registro.php" class="alert-link">aquí</a>
                         para registrarte.
                     </p>
                 </li>
