@@ -61,13 +61,11 @@ if (isset($_SESSION["token"]) && $_SESSION["token"] === $formData["_token"])  //
                                   ":inversor" => $formData["inversor"]
                               ));
         $user_id = $db->lastInsertId();
-        var_dump($create_user);
-        echo $user_id;exit;
         $_SESSION["user"] = array(
             "id" => $user_id,
-            "name" => $formData["name"],
+            "nombre" => $formData["name"],
             "email" => $formData["email"],
-            "username" => $formData["username"],
+            "usuario" => $formData["username"],
             "password" => $hashed_password,
             "inversor" => $formData["inversor"]
         );

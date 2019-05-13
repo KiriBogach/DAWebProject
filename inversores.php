@@ -20,6 +20,8 @@ require_once __DIR__ . '/app/includes.php';
 
 </head>
 
+<body>
+
 <!-- Cabecera -->
 <?php require_once __DIR__ . '/inc/components/header.php' ?>
 
@@ -29,27 +31,26 @@ require_once __DIR__ . '/app/includes.php';
         <div class="col-lg-12 text-center">
             <ul class="list-unstyled">
                 <li>
-                    <h1 class="mt-5">Proyectos</h1>
+                    <h1 class="mt-5">Inversores</h1>
                 </li>
                 <li>
-                    <p class="text-body mt-5">Invertir en una de las empresas que han confiado en nosotros es tan sencillo como
-                        rentable. Es tan fácil como explorar entre nuestros proyectos, el que más interesante estimes que es
-                        y hacer click en el botón de invertir, esto te llevará a una página con más detalles del proyecto y un campo en el
-                        que puedes indicar la cantidad de dinero a invertir y este irá directamente hacia el beneficiario.
-                        <br><strong>Nota:</strong> Sólo podrán invertir en los proyectos los usuarios
-                        registrados en la plataforma. Si no estás registrado, haz click <a href="registro.php" class="alert-link">aquí</a>
-                        para registrarte.
+                    <p class="text-body mt-5">
+                        Cada día más personas confían en nuestra visión del crowdlending inteligente, en la
+                        que invertir por el futuro y la innovación nunca fué tan fácil y beneficioso. Nuestros
+                        inversores apuestan cada día por la renovación tecnológica y por el sector de las TIC.
+                        Si eres una empresa dedicada a este sector, te damos razones para que confíes en nuestra
+                        plataforma y nuestro modo de ver las cosas, y es que, cada inversor es una razón para hacerlo.
                     </p>
                 </li>
                 <li>
-                    <h4 class="mt-5">A continuación se muestra la lista de todos los proyectos.</h4>
+                    <h4 class="mt-5">Por ello, todos estos inversores, son para ti, una razón y una garantía de futuro.</h4>
                 </li>
             </ul>
         </div>
     </div>
 </div>
 <div class="container mt-5">
-<?php require_once __DIR__ . '/inc/components/allProjects.php' ?>
+<?php require_once __DIR__ . '/inc/components/allInversors.php' ?>
 </div>
 <?php require_once __DIR__ . '/inc/components/footer.php' ?>
 

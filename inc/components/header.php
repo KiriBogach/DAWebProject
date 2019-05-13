@@ -12,7 +12,7 @@
                 <a class="nav-link" href="proyectos.php">Proyectos</a>
             </li>
             <li class="nav-item btn-outline-secondary">
-                <a class="nav-link" href="#">Inversores</a>
+                <a class="nav-link" href="inversores.php">Inversores</a>
             </li>
             <li class="nav-item btn-outline-secondary">
                 <a class="nav-link" href="#">Empresas</a>
