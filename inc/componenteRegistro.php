@@ -1,8 +1,12 @@
-<?php if (!defined("APP_NAME")) exit(); ?>
 <div class="container">
     <div class="row">
         <div class="col-md-8 offset-2 form-container" id="sign-up-form-container">
             <h2 class="sign-in-heading text-center">Formulario de Registro</h2>
+            <?php
+            $usuario = auth_user();
+            if ($usuario !== null) { ?>
+                <h5 class="sign-in-heading alert-warning text-center">Ya estás logeado como '<?=$usuario['nombre']?>'</h5>
+            <?php } ?>
             <form method="post" id="signUpForm">
                 <div class="form-group">
                     <label for="name">Nombre</label>

@@ -4,4 +4,5 @@
 // Añadir aquí toda configuración y/o utilidad común.
 
 require_once __DIR__ . '/config.php';
+require_once __DIR__ . '/Utils/Utils.php';
 require_once __DIR__ . '/Utils/DateUtils.php';

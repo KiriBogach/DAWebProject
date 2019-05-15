@@ -4,7 +4,11 @@ require_once __DIR__ . '/../includes.php';
 
 class ProjectManager {
 
+    // Conexión a la BD
     public $db;
+
+    // Directorio de almacenamiento de imágenes
+    public static $IMG_PROJECT_DESTINATION = '../../resources/proyectos/';
 
     /**
      * ProjectManager constructor.
@@ -12,6 +16,8 @@ class ProjectManager {
     public function __construct() {
         global $db;
         $this->db = $db;
+
+        Utils::checkFolder(self::$IMG_PROJECT_DESTINATION);
     }
 
     public function getAllProjects() {
@@ -93,7 +99,7 @@ VALUES
         if (!is_null($foto)) {
             $idProyecto = $this->db->lastInsertId();
             $uriFotoProyecto = $idProyecto . '.' . $formatoFoto;
-            move_uploaded_file($foto['tmp_name'], '../../resources/proyectos/' . $uriFotoProyecto);
+            move_uploaded_file($foto['tmp_name'], self::$IMG_PROJECT_DESTINATION . $uriFotoProyecto);
         }
 
         if ($insert->rowCount() <= 0) {
