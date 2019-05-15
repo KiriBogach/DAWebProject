@@ -1,76 +1,75 @@
 <?php
 session_start();
 
-$errors = array();     //array that will contain the errors if any
-$success = false;      //whether the ajax post and user creation are successful. Initial assumption is false
-/*
- * Unserialize the form data via parse_str() function
- */
-$formData = array();
-parse_str($_POST["formData"], $formData);
+$response = array(
+    'success' => true,
+    'errors' => null
+);
 
-if (isset($_SESSION["token"]) && $_SESSION["token"] === $formData["_token"])  //if tokens match
-{
-    /*
-     * Checking if posted fields are empty string (just in case) - e.g. user typing only whitespaces instead of actual name, email, username, password
-     */
+try {
+    $formData = array();
+    parse_str($_POST["formData"], $formData);
+
+    // Se comprueban los campos quitando espacios:
     if (trim($formData["name"]) == "") {
-        $errors[] = "Name field can't be blank.";
+        throw new Exception("El nombre no puede estar vacío.");
     }
     if (trim($formData["email"]) == "") {
-        $errors[] = "Email field can't be blank.";
+        throw new Exception("El email no puede estar vacío.");
     }
     if (!filter_var($formData["email"], FILTER_VALIDATE_EMAIL)) {
-        $errors[] = "Email must be a valid email address.";
+        throw new Exception("Indique un email válido");
     }
     if (trim($formData["username"]) == "") {
-        $errors[] = "Username field can't be blank.";
+        throw new Exception("El usuario no puede estar vacío.");
     }
     if (trim($formData["password"]) == "") {
-        $errors[] = "Password field can't be blank.";
+        throw new Exception("La contraseña no puede estar vacía.");
     }
     if (trim($formData["inversor"]) == "") {
-        $errors[] = "Must select between inversor and empresario";
+        throw new Exception("Debe seleccionar entre 'inversor' y 'empresario'");
     }
 
     require_once '../app/db.php';
 
     /*
-     * If there is user already registered with submitted email or username
+     * Comprueba si el usuario o su email ya existen en algún usuario
      */
     $check_if_user_exists = $db->prepare("SELECT id FROM users WHERE email = :email OR username = :username");
     $check_if_user_exists->execute(array(
-                                       ":email" => $formData["email"],
-                                       ":username" => $formData["username"]
-                                   ));
+        ":email" => $formData["email"],
+        ":username" => $formData["username"]
+    ));
+
     if ($check_if_user_exists->rowCount() > 0) {
-        $errors[] = "User with username " . $formData["username"] . " or email " . $formData["email"] . " already exists.";
+        throw new Exception("Ya existe un usuario '" . $formData["username"] . "' o con el email '" . $formData["email"] . "'.");
     }
 
     /*
-     * If no errors, create the user in database and sign in the user
+     * Si no hay errores, registramos en bd y logeamos
      */
-    if (empty($errors)) {
-        $hashed_password = password_hash($formData["password"], PASSWORD_DEFAULT);
-        $create_user = $db->prepare("INSERT INTO users(name, email, username, password, inversor, created_at) VALUES(:name, :email, :username, :password, :inversor, NOW())");
-        $create_user->execute(array(
-                                  ":name" => $formData["name"],
-                                  ":email" => $formData["email"],
-                                  ":username" => $formData["username"],
-                                  ":password" => $hashed_password,
-                                  ":inversor" => $formData["inversor"]
-                              ));
-        $user_id = $db->lastInsertId();
-        $_SESSION["user"] = array(
-            "id" => $user_id,
-            "nombre" => $formData["name"],
-            "email" => $formData["email"],
-            "usuario" => $formData["username"],
-            "password" => $hashed_password,
-            "inversor" => $formData["inversor"]
-        );
-        $success = true;
-    }
-}
-echo json_encode(array("errors" => $errors, "success" => $success));
+    $hashed_password = password_hash($formData["password"], PASSWORD_DEFAULT);
+    $create_user = $db->prepare("INSERT INTO users(name, email, username, password, inversor, created_at) VALUES(:name, :email, :username, :password, :inversor, NOW())");
+    $create_user->execute(array(
+        ":name" => $formData["name"],
+        ":email" => $formData["email"],
+        ":username" => $formData["username"],
+        ":password" => $hashed_password,
+        ":inversor" => $formData["inversor"]
+    ));
 
+    $user_id = $db->lastInsertId();
+    $_SESSION["user"] = array(
+        "id" => $user_id,
+        "nombre" => $formData["name"],
+        "email" => $formData["email"],
+        "usuario" => $formData["username"],
+        "password" => $hashed_password,
+        "inversor" => $formData["inversor"]
+    );
+} catch (Exception $ex) {
+    $response['success'] = false;
+    $response['errors'] = array($ex->getMessage());
+} finally {
+    echo json_encode($response);
+}
