@@ -23,6 +23,14 @@ require_once __DIR__ . '/app/includes.php';
 <!-- Cabecera -->
 <?php require_once __DIR__ . '/inc/components/header.php' ?>
 
+<!-- breadcrumbs -->
+<nav aria-label="breadcrumb" class="sticky-top">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="index.php">Home</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Proyectos</li>
+    </ol>
+</nav>
+
 <!-- Contenido de la página -->
 <div class="container mt-5">
     <div class="row">

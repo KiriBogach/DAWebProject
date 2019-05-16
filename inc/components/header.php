@@ -32,7 +32,7 @@ $not_logged = is_null($usuarioLogeado);
                 }
             ?>
             <li class="nav-item btn-outline-secondary">
-                <a class="nav-link" href="#">Servicios</a>
+                <a class="nav-link" href="servicios.php">Servicios</a>
             </li>
             <li class="nav-item btn-outline-secondary">
                 <a class="nav-link" href="#">Contacto</a>

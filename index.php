@@ -26,8 +26,14 @@ require_once __DIR__ . '/app/includes.php';
 <!-- Cabecera -->
 <?php require_once __DIR__ . '/inc/components/header.php' ?>
 
-<!-- Contenido de la página -->
+<!-- breadcrumbs -->
+<nav aria-label="breadcrumb" class="sticky-top">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item active" aria-current="page">Home</li>
+    </ol>
+</nav>
 
+<!-- Contenido de la página -->
 <div class="container mt-5">
     <div class="row">
         <div class="col-lg-12 text-center">
@@ -40,7 +46,7 @@ require_once __DIR__ . '/app/includes.php';
                         </div>
                         <div class="container text-white">
                             <p class="lead">Invierte ahora en tecnología para ganar ayudando.</p>
-                            <a class="btn btn-primary btn-lg" href="#" role="button">Quiero saber más</a>
+                            <a class="btn btn-primary btn-lg" href="servicios.php" role="button">Quiero saber más</a>
                         </div>
                     </div>
                 </li>

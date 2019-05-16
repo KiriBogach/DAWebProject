@@ -26,8 +26,16 @@ require_once __DIR__ . '/app/includes.php';
 <!-- Cabecera -->
 <?php require_once __DIR__ . '/inc/components/header.php' ?>
 
-<!-- Contenido de la página -->
+<!-- breadcrumbs -->
+<nav aria-label="breadcrumb" class="sticky-top">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="index.php">Home</a></li>
+        <li class="breadcrumb-item"><a href="proyectos.php">Proyectos</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Invertir en proyecto</li>
+    </ol>
+</nav>
 
+<!-- Contenido de la página -->
 <div class="alert alert-success alert-dismissable" style="display: none" id="alertaSuccess">
     <h4>
         ¡Éxito!
