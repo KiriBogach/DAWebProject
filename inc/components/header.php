@@ -1,3 +1,7 @@
+<?php
+$usuarioLogeado = auth_user();
+$not_logged = is_null($usuarioLogeado);
+?>
 <nav class="navbar navbar-expand-lg navbar-light static-top" style="background-color: rgba(165,165,165,0.5)">
         <a class="navbar-brand" href="index.php">
             <img src="resources/img/canvas.png" width="165" height="100" alt="">
@@ -17,6 +21,16 @@
             <li class="nav-item btn-outline-secondary">
                 <a class="nav-link" href="empresas.php">Empresarios</a>
             </li>
+            <?php
+            if (!$not_logged)
+                if($usuarioLogeado['inversor'] === 'empresario') {
+            ?>
+                <li class="nav-item">
+                    <a class="nav-link" href="registroProyecto.php">Registrar Proyecto</a>
+                </li>
+            <?php
+                }
+            ?>
             <li class="nav-item btn-outline-secondary">
                 <a class="nav-link" href="#">Servicios</a>
             </li>
@@ -25,9 +39,8 @@
             </li>
         </ul>
             <?php
-                $usuarioLogeado = auth_user();
                 // Si no estoy logeado, muestro los botones
-                if (is_null($usuarioLogeado)) {
+                if ($not_logged) {
             ?>
         <ul class="navbar-nav flex-row ml-auto" style="align-items: center;">
             <li class="nav-item">
@@ -43,14 +56,10 @@
             <li class="nav-item">
                 <h5>Bienvenido Sr/Sra '<?=$usuarioLogeado['nombre']?>'</h5>
             </li>
+            <li class="nav-item">
+                <button id="signOutButton" type="button" class="btn btn-outline-dark btn-sm mr-2 ml-2" onclick="location.href='registroProyecto.php'">logout?</button>
+            </li>
             <?php
-                    if ($usuarioLogeado['inversor'] === 'empresario') {
-                        ?>
-                            <li class="nav-item">
-                                <button type="button" class="btn btn-outline-dark btn-sm mr-2 ml-2" onclick="location.href='registroProyecto.php'">Registrar Proyecto</button>
-                            </li>
-            <?php
-                    }
                 }
             ?>
         </ul>
