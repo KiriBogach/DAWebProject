@@ -1,6 +1,9 @@
 <?php
 session_start();
 
+/* Configuración global */
+define("COOKIE_USUARIO", "logged_user");
+
 require_once 'db.php';
 
 /*
@@ -26,8 +29,8 @@ function auth_user() {
     global $db;
 
     $user = null;
-    if(isset($_SESSION["user"]) || isset($_COOKIE["cookie_usuario_logeado"])) {
-        $logged_in_user = isset($_SESSION["user"]) ? $_SESSION["user"] : json_decode($_COOKIE["cookie_usuario_logeado"], true);
+    if(isset($_SESSION["user"]) || isset($_COOKIE[COOKIE_USUARIO])) {
+        $logged_in_user = isset($_SESSION["user"]) ? $_SESSION["user"] : json_decode($_COOKIE[COOKIE_USUARIO], true);
 
         $check_user = $db->prepare("SELECT id FROM users WHERE email = :email AND username = :username AND password = :password");
         $check_user->execute(array(

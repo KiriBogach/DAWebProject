@@ -79,6 +79,7 @@ require_once __DIR__ . '/app/includes.php';
 <!-- Bootstrap core JavaScript -->
 <script src="vendor/jquery/jquery.min.js"></script>
 <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+<script src="js/index.js"></script>
 <script src="js/randomProjects.js"></script>
 
 </body>

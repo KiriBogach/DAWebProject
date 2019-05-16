@@ -1,5 +1,5 @@
 <?php
-session_start();
+include_once __DIR__ . '/../app/includes.php';
 
 $response = array(
     'success' => true,
@@ -55,7 +55,7 @@ try {
 
     // Si ponemos que recordemos al usuario, ponemos la cookie con tiempo caducidad de un día
     if (isset($formData["remember_me"])) {
-        setcookie("cookie_usuario_logeado", json_encode($_SESSION["user"]), time() + 86400, "/");
+        setcookie(COOKIE_USUARIO, json_encode($_SESSION["user"]), time() + 86400, "/");
     }
 } catch (Exception $ex) {
     $response['success'] = false;

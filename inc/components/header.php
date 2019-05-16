@@ -57,7 +57,7 @@ $not_logged = is_null($usuarioLogeado);
                 <h5>Bienvenido Sr/Sra '<?=$usuarioLogeado['nombre']?>'</h5>
             </li>
             <li class="nav-item">
-                <button id="signOutButton" type="button" class="btn btn-outline-dark btn-sm mr-2 ml-2" onclick="location.href='registroProyecto.php'">logout?</button>
+                <button id="signOutButton" type="button" class="btn btn-outline-dark btn-sm mr-2 ml-2" >Logout</button>
             </li>
             <?php
                 }
