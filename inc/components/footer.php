@@ -22,7 +22,7 @@
                         <a class="nav-link" href="proyectos.php">Proyectos</a>
                     </li>
                     <li>
-                        <a class="nav-link" href="#!">Servicios</a>
+                        <a class="nav-link" href="servicios.php">Servicios</a>
                     </li>
                 </ul>
             </div>
@@ -35,7 +35,7 @@
                         <a class="nav-link" href="empresas.php">Empresas</a>
                     </li>
                     <li>
-                        <a class="nav-link" href="#!">Contacto</a>
+                        <a class="nav-link" href="contactos.php">Contacto</a>
                     </li>
                 </ul>
             </div>

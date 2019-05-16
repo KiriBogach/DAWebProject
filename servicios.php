@@ -45,8 +45,8 @@ $loggedUser=auth_user()
                     <p class="text-body text-justify mt-5">
                         Nuestra empresa ofrece servicios de Crowdlending orientado en su mayoría a las TIC.
                         En nuestro portal web podrás registrar tus proyectos que necesiten financiación, así
-                        como invertir en el resto de proyectos de empresas que registren sus proyectos de crowdlending
-                        con nosotros.
+                        como, invertir en el resto de proyectos de empresas que colaboren con nosotros, a cambio de
+                        unos ciertos intereses.
                         <br>
                         <br>
                         <strong>Nota:</strong> Sólo podrán hacer uso de nuestros servicios los usuarios
@@ -101,12 +101,12 @@ $loggedUser=auth_user()
                     <p class="text-body text-justify mt-5 mb-5">
                         Registrar un proyecto en nuestra plataforma, además de ser fácil te permite disfrutar de grandes
                         ventajas. Tu proyecto será compartido con todos los inversores de nuestra plataforma de forma
-                        que a partir del mismo momento, inversores con los que compartas el mismo interés, podrán
-                        invertir en tu proyecto y ayudarte a cumplir tus objetivos y tus metas como empresario. Si
-                        quieres compartir tu proyecto y llevarlo adelante con personas que cumplan tus mismos objetivos,
-                        esta es tu ocasión.
+                        que a partir del mismo momento en el que terminas el proceso, inversores con los que compartas
+                        el mismo interés, podrán invertir en tu proyecto y ayudarte a cumplir tus objetivos y tus metas
+                        como empresario. Si quieres compartir tu proyecto y llevarlo adelante con personas que cumplan
+                        tus mismos objetivos, esta es tu ocasión.
                         Para poder registrar un proyecto, primero debes estar
-                        <a href="registro.php" class="alert-link">resgistrado.</a> como empresario. Una vez jecho esto
+                        <a href="registro.php" class="alert-link">resgistrado.</a> como empresario. Una vez jecho esto,
                         es tan fácil como seguir los siguientes pasos:
                     <dl class="row text-left">
                         <dt class="col-sm-3">1.</dt>
