@@ -36,3 +36,22 @@ COLLATE='latin1_swedish_ci'
 ENGINE=InnoDB
 AUTO_INCREMENT=1
 ;
+
+-- Tabla Inversiones
+DROP TABLE IF EXISTS `inversiones`;
+CREATE TABLE `inversiones` (
+    `id` INT(11) NOT NULL AUTO_INCREMENT,
+    `usuario` int(11) NOT NULL, -- el usuario que hace la inversión
+    `fecha` DATETIME NOT NULL, -- momento de inversión
+    `project` INT(11) NOT NULL,
+    `cantidad` INT(11) NOT NULL,
+    PRIMARY KEY (`id`),
+    CONSTRAINT FK_usuario_inversor FOREIGN KEY (`usuario`)
+        REFERENCES users(`id`),
+    CONSTRAINT FK_project FOREIGN KEY (`project`)
+        REFERENCES projects(`id`)
+)
+    COLLATE='latin1_swedish_ci'
+    ENGINE=InnoDB
+    AUTO_INCREMENT=1
+;

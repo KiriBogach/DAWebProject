@@ -34,7 +34,7 @@ class DateUtils {
     }
 
     public static function getNowString() {
-        return (new DateTime())->format(static::$DB_PHOTO_FORMAT);
+        return (new DateTime())->format(static::$MYSQL_DATETIME_FORMAT);
     }
 
     public static function convertToSpanish($dateString) {

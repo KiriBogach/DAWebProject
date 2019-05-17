@@ -173,13 +173,37 @@ fondos_alcanzados = :fondos_alcanzados
 WHERE id = :id
         ');
         $update->execute(array(
-                             ':id' => $id,
-                             ':fondos_alcanzados' => $fondosAlcanzadosActuales + $inversion
+                             ':id'                  => $id,
+                             ':fondos_alcanzados'   => $fondosAlcanzadosActuales + $inversion
                          ));
 
         if ($update->rowCount() <= 0) {
             throw new Exception('Error actualiznado el proyecto');
         }
+
+        $insert = $this->db->prepare('
+INSERT INTO  inversiones
+(usuario, fecha, project, cantidad)
+VALUES
+(:usuario, :fecha, :project, :cantidad)
+        ');
+
+        $usuarioLogeado = auth_user();
+        if (empty($usuarioLogeado)) {
+            throw new Exception('Solo puedes invertir en un proyecto si estás logeado');
+        }
+
+        $insert->execute(array(
+            ':usuario'  => $usuarioLogeado['id'],
+            ':fecha'    => DateUtils::getNowString(),
+            ':project'  => $id,
+            ':cantidad' => $inversion
+        ));
+
+        if ($insert->rowCount() <= 0) {
+            throw new Exception('Error insertando inversión');
+        }
+
     }
 
 }
