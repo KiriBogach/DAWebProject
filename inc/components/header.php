@@ -25,7 +25,7 @@ $not_logged = is_null($usuarioLogeado);
             if (!$not_logged)
                 if($usuarioLogeado['inversor'] === 'empresario') {
             ?>
-                <li class="nav-item">
+                <li class="nav-item btn-outline-secondary">
                     <a class="nav-link" href="registroProyecto.php">Registrar Proyecto</a>
                 </li>
             <?php
