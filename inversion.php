@@ -81,6 +81,7 @@ require_once __DIR__ . '/app/includes.php';
 <script src="vendor/jquery/jquery.min.js"></script>
 <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
 <script src="js/inversion.js"></script>
+<script src="js/logout.js"></script>
 
 </body>
 
